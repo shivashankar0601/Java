@@ -1,0 +1,42 @@
+// program to find the largest k elements with minimum time complexity
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void readValues( int n)
+{
+    int a[n];
+    for(int i=0;i<n;i++)
+        cin>>a[i];
+    int k=0;
+    cin>>k;
+    int t[k];
+    for(int i=0;i<k;i++)
+        t[i]=a[i];
+    int temp=0;
+    
+    for(int i=0;i<k;i++)
+    {
+        for(int j=k+i;j<n;j++)
+        {
+            
+            if(a[j]>t[i])
+            {
+                temp=t[i];
+                t[i]=a[j];
+                a[j]=temp;
+            }
+        }
+    }
+    
+    for(int i=0;i<k;i++)
+        cout<<t[i]<<" ";
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    readValues(n);
+    return 0;
+}
