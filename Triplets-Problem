@@ -1,0 +1,60 @@
+//find triplet which satisfies a2= b2+c2 condition
+
+
+import java.util.Arrays;
+
+public class TrippletsProgram 
+{
+	public static void main(String[] args) 
+	{
+		java.util.Scanner scan = new java.util.Scanner(System.in);
+		int n=scan.nextInt();
+		int a[] = new int[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=scan.nextInt();
+			a[i]*=a[i];
+		}
+		
+		int l=0,r=n-1;
+		
+		for(int i=0;i<n;i++)
+		{
+			l=i+1;
+			r=n-1;
+			while(l<r)
+			{
+				if(a[l]+a[r]==a[i] || a[i]+a[r]==a[l] || a[l]+a[i]==a[r] )
+				{
+					System.out.println(a[l]+" "+a[r]+" "+a[i]);
+					System.exit(0);
+				}
+				else
+					if(a[l]+a[r]<a[i])
+					{
+						l++;
+					}
+					else
+						if(a[l]+a[r]>a[i])
+						{
+							r--;
+						}
+			}
+		}
+		
+		System.out.println("no triplet found in this values");
+		//Arrays.parallelSort(a);
+/*				
+		Arrays.sort(a);
+		
+		
+		
+		for(int x : a)
+			System.out.print(x+" ");
+	*/
+	
+	
+	
+	}
+	
+}
