@@ -1,0 +1,32 @@
+//Given a positive integer n, count the total number of set bits in binary representation of all numbers from 1 to n
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int total_bit=0,count =0;
+    printf("Enter number\n");
+    scanf("%d",&total_bit);
+    count= count_bitopr(total_bit);
+    printf("Total bit are %d\n",count);
+}
+int count_bitopr(int range)
+{
+    int count =0,i=1;
+    for(;i<=range;i++)
+        count = count + count_bit(i);
+    return count;
+}
+int count_bit(int total_bit)
+{
+    int count = 0;
+    while(total_bit !=0 )
+    {
+        total_bit = total_bit & (total_bit -1);
+        count ++;
+    }
+    return count;
+}
